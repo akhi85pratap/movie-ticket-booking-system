@@ -1,0 +1,29 @@
+global:
+  scrape_interval:     10s
+  evaluation_interval: 10s
+
+scrape_configs:
+  - job_name: 'user-auth-service'
+    metrics_path: '/actuator/prometheus'
+    static_configs:
+      - targets: ['user-auth-service:8080']
+        labels:
+          application: 'Auth Service Application'
+  - job_name: 'admin-service'
+    metrics_path: '/actuator/prometheus'
+    static_configs:
+      - targets: ['admin-service:8080']
+        labels:
+          application: 'Admin Service Application'
+  - job_name: 'movie-catalog-service'
+    metrics_path: '/actuator/prometheus'
+    static_configs:
+      - targets: ['movie-catalog-service:8080']
+        labels:
+          application: 'Catalog Service Application'
+  - job_name: 'ticket-booking-service'
+    metrics_path: '/actuator/prometheus'
+    static_configs:
+      - targets: ['ticket-booking-service:8080']
+        labels:
+          application: 'Ticket booking Service Application'
